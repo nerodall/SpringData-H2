@@ -17,27 +17,29 @@ public class Controller {
     private final TaskService taskService;
 
     @GetMapping("getAll")
-    public List<Task> getAllTasks(){
+    public List<Task> getAllTasks() {
         return taskService.getAllTask();
     }
 
     @PostMapping("create")
-    public String createTask(@RequestBody Task task){
-      return taskService.createTask(task).toString();
+    public String createTask(@RequestBody Task task) {
+        return taskService.createTask(task).toString();
     }
 
     @GetMapping("status/{status}")
-    public List<Task> getByStatus(@PathVariable TaskStatus status){
+    public List<Task> getByStatus(@PathVariable TaskStatus status) {
         return taskService.findTaskByStatus(status);
     }
 
     @PutMapping("update/{id}")
-    public void updateById(@PathVariable Long id,@RequestBody Task task){
-         taskService.updateTask(id,task);
+    public void updateById(@PathVariable Long id, @RequestBody Task task) {
+        // taskService.updateTask(id,task);
+        task.setId(id);
+        taskService.createTask(task);
     }
 
     @PostMapping("delete/{id}")
-    public String deleteById(@PathVariable Long id){
+    public String deleteById(@PathVariable Long id) {
         taskService.deleteTask(id);
         return "task deleted";
     }

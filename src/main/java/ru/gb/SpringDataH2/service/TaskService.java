@@ -27,11 +27,14 @@ public class TaskService {
     }
 
     // TODO: 15.04.2024
+    /*
     public void updateTask(Long id, Task task) {
         taskRepository.updateTask(id, task.getTaskStatus());
     }
-
+*/
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
+
+
 }

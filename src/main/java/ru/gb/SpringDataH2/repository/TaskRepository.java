@@ -13,8 +13,9 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
     List<Task> findTasksByTaskStatus(TaskStatus status);
-
+/*
     @Modifying
     @Query(value = "update Task t set  t.taskStatus = :taskStatus where t.id = :id")
     void updateTask(@Param("id") Long id, @Param("taskStatus") TaskStatus taskStatus);
+    */
 }
